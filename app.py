@@ -102,7 +102,7 @@ if uploaded_file:
             if data[date_column].astype(str).str.isdigit().all():
                 data[date_column] = pd.to_datetime(data[date_column], format="%Y%m%d", errors="coerce")
             else:
-                data[date_column] = pd.to_datetime(data[date_column], infer_datetime_format=True, errors='coerce')
+                data[date_column] = pd.to_datetime(data[date_column], errors='coerce')
 
             if data[date_column].isna().any():
                 st.warning("Some rows have invalid dates. These rows will be dropped.")
